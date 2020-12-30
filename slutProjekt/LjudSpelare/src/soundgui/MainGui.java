@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -24,9 +25,19 @@ public class MainGui implements ActionListener {
 	JButton soundTwoBtn;
 	JButton soundThreeBtn;
 	
-	//Vår SoundPlayer class objekt
-	static SoundPlayer player = new SoundPlayer();
+	//Arraylist med våra knappar, knappar läggs till med createNewSoundBtn
+	ArrayList<JButton> soundBtns = new ArrayList<JButton>();
 	
+	
+	
+	//Vår SoundPlayer class objekt
+	SoundPlayer player = new SoundPlayer();
+	
+	public void createNewSoundBtn(String soundpath) {
+		JButton Button = new JButton(soundpath);
+		Button.addActionListener(this);
+		soundBtns.add(Button);
+	}
 	
 	//Constructor för vår GUI
 	public MainGui() {
@@ -34,13 +45,10 @@ public class MainGui implements ActionListener {
 		frame = new JFrame("LjudSpelare GritAcademy");
 		
 		//Objekt till våra komponenter
-		soundOneBtn = new JButton("Spela ljud 1");
-		soundTwoBtn = new JButton("Spela ljud 2");
-		soundThreeBtn = new JButton("Spela ljud 3");
-		
-		soundOneBtn.addActionListener(this);
-		soundTwoBtn.addActionListener(this);
-		soundThreeBtn.addActionListener(this);
+		createNewSoundBtn("/resources/1.wav");
+		createNewSoundBtn("/resources/2.wav");
+		createNewSoundBtn("/resources/3.wav");
+		createNewSoundBtn("/resources/4.wav");
 		JLabel headerLabel = new JLabel("Tryck för att spela ljud");
 		
 		//Panel komponent
@@ -52,9 +60,12 @@ public class MainGui implements ActionListener {
 		panel.setLayout(new GridLayout(0, 1));
 		//Lägg till komponenterna till parenten (panelen)
 		panel.add(headerLabel);
-		panel.add(soundOneBtn);
-		panel.add(soundTwoBtn);
-		panel.add(soundThreeBtn);
+		
+		//Loopa och lägg till knapp objekten som vi skapa med createNewSoundBtn till panelen
+		for (JButton btn: soundBtns)
+		{
+			panel.add(btn);
+		}
 		
 		//Lägg panelen till framen
 		frame.add(panel, BorderLayout.CENTER);
@@ -77,13 +88,9 @@ public class MainGui implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//Kör 1.wav om objektet man tryckt på är första knappen
-		if (e.getSource() == soundOneBtn)
-			player.playSound("/resources/1.wav");
-		else if (e.getSource() == soundTwoBtn)
-			player.playSound("/resources/2.wav");
-		else if (e.getSource() == soundThreeBtn)
-			player.playSound("/resources/3.wav");
+		//Lägg till objektet vi tryckt på och casta den till en JButton sedan spela upp ljudet som är namnet på knappen
+		JButton button = (JButton) e.getSource();
+		player.playSound(button.getText());
 			
 		
 	}

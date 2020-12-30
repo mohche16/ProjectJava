@@ -7,11 +7,23 @@ import javax.sound.sampled.Clip;
 
 //SoundPlayer class med playSound method som tar en sträng som är soundfilen
 public class SoundPlayer {
+	Clip clip;
 	public void playSound(String soundpath) {
 		try {
-			Clip clip = AudioSystem.getClip();
-			clip.open(AudioSystem.getAudioInputStream(getClass().getResource(soundpath)));
-			clip.start();
+			if (clip == null)
+			{
+				clip = AudioSystem.getClip();
+				clip.open(AudioSystem.getAudioInputStream(getClass().getResource(soundpath)));
+				clip.start();
+			}
+			else {
+				if (!clip.isActive())
+				{
+					clip = AudioSystem.getClip();
+					clip.open(AudioSystem.getAudioInputStream(getClass().getResource(soundpath)));
+					clip.start();
+				}
+			}
 
 		} catch (Exception exc) {
 			System.out.println(exc);
