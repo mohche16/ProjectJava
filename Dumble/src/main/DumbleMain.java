@@ -40,6 +40,7 @@ public class DumbleMain {
 			 continue;
 		 }
 		 System.out.println(Table);
+		 Table.clear();
 		
 		}		
 
