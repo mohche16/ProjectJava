@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tictac.MainController">
+    <children>
+        <FlowPane layoutX="188.0" layoutY="115.0" prefHeight="225.0" prefWidth="225.0">
+            <children>
+                <Button fx:id="button1" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button3" layoutX="85.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button4" layoutX="160.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button5" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button6" layoutX="85.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button7" layoutX="160.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button8" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+                <Button fx:id="button9" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0">
+                    <font>
+                        <Font size="24.0" />
+                    </font></Button>
+            </children>
+        </FlowPane>
+        <Text fx:id="winnerText" fill="WHITE" layoutX="182.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Grit Tic Tac Toe " textAlignment="CENTER" wrappingWidth="237.9443359375">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Text>
+        <Button layoutX="274.0" layoutY="361.0" mnemonicParsing="false" onAction="#restartGame" text="Restart" />
+        <Text fx:id="playerOneScoreAmount" fill="WHITE" layoutX="21.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="237.9443359375">
+            <font>
+                <Font size="24.0" />
+            </font></Text>
+        <Text fx:id="playerTwoScoreAmount" fill="WHITE" layoutX="335.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" wrappingWidth="237.9443359375">
+            <font>
+                <Font size="24.0" />
+            </font></Text>
+        <Text fx:id="playerOne" fill="WHITE" layoutX="21.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spelare 1" wrappingWidth="237.9443359375" />
+        <Text fx:id="playerTwo" fill="WHITE" layoutX="335.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spelare 2" textAlignment="RIGHT" wrappingWidth="237.9443359375" />
+    </children>
+</AnchorPane>
